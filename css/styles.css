@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#180727;
+  --bg-deep:#160522;
+  --purple:#7f2df2;
+  --purple-2:#8d38ff;
+  --purple-3:#6f1fe6;
+  --card:#381567;
+  --card-2:#48207b;
+  --white:#fff;
+  --muted:#bda3db;
+  --cyan:#2dcbe8;
+  --yellow:#ffd11a;
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#09020e;
+}
+
+body{
+  font-family:'Fredoka',sans-serif;
+  color:var(--white);
+  position:relative;
+}
+
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+
+.screen{
+  width:1440px;
+  height:810px;
+  position:absolute;
+  left:50%;
+  top:50%;
+  overflow:hidden;
+  margin:0;
+  transform-origin:center center;
+  transform:translate(-50%,-50%) scale(min(calc(100vw / 1440px),calc(100vh / 810px)));
+  background:linear-gradient(115deg,#190829 0%,#170624 45%,#180725 100%);
+}
+
+.open-sans{font-family:'Open Sans',sans-serif}
+.white{color:#fff}
+.purple-text{color:#812ef6}
+.muted{color:#bca5d3}
+
+.asset-slot{display:block;object-fit:contain}
+.transparent-placeholder{opacity:0;pointer-events:none}
+
+.bottom-nav{
+  position:absolute;
+  left:82px;
+  bottom:33px;
+  width:1277px;
+  height:103px;
+  border-radius:54px;
+  background:linear-gradient(100deg,#8f39ff 0%,#7726ef 65%,#7220e8 100%);
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  padding:7px 78px 5px;
+  z-index:20;
+}
+
+.nav-item{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  min-width:0;
+  color:#fff;
+}
+.nav-label{
+  height:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Open Sans',sans-serif;
+  font-size:11px;
+  line-height:1;
+  font-weight:700;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.nav-icon-wrap{
+  width:72px;
+  height:69px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:57px;
+  line-height:1;
+}
+.nav-icon-wrap i{font-size:57px;line-height:1}
+.nav-item.active::after{
+  content:'';
+  position:absolute;
+  width:72px;
+  height:8px;
+  border-radius:8px;
+  background:#2fd4e6;
+  bottom:-4px;
+}
+
+.fa-slot{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:1em;
+  height:1em;
+}
+
+.btn-white{
+  border:0;
+  background:#fff;
+  color:#7c2cf0;
+  font-family:'Fredoka',sans-serif;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.progress-shell{background:#fff;overflow:hidden}
+.progress-fill{height:100%;background:var(--yellow)}
+.progress-fill-cyan{height:100%;background:#2bcbe5}
+
+/* HOME */
+.home .brand-pill{
+  position:absolute;left:100px;top:59px;
+  height:45px;min-width:166px;padding:0 12px;
+  border-radius:24px;
+  display:flex;align-items:center;justify-content:center;
+  background:#7d2cf1;
+  font-size:21px;font-weight:600;letter-spacing:-.7px;
+}
+.home .brand-pill b{font-weight:700}
+.home .brand-pill .lab-outline{color:#fff;-webkit-text-stroke:1px #fff;color:transparent}
+.home .hello{position:absolute;left:100px;top:161px;font-size:59px;line-height:1.05;font-weight:700;letter-spacing:-1.8px}
+.home .hello span{color:#822ff3}
+.home .hello-sub{position:absolute;left:100px;top:244px;font-family:'Open Sans',sans-serif;font-size:15px;font-weight:500}
+.home .home-mascot{position:absolute;left:445px;top:96px;width:218px;height:186px;object-fit:contain}
+.home .continue-card{
+  position:absolute;left:84px;top:284px;width:594px;height:193px;
+  border-radius:36px;background:linear-gradient(110deg,#9038ff 0%,#7422ec 100%);
+  padding:22px 25px;
+}
+.home .continue-card h2{margin:0;font-size:35px;line-height:1;font-weight:700}
+.home .continue-card .chapter{margin-top:7px;font-size:22px;font-weight:600;color:#d6c1ff}
+.home .continue-card .lesson{margin-top:29px;font-size:18px;font-weight:600}
+.home .continue-card .done{margin-top:2px;font-family:'Open Sans',sans-serif;font-size:10px;font-weight:500;color:#d9c8f8}
+.home .resume-btn{position:absolute;right:91px;top:55px;width:174px;height:80px;border-radius:21px;font-size:24px}
+.home .lesson-dots{position:absolute;right:27px;top:27px;display:flex;flex-direction:column;gap:11px}
+.home .lesson-dots i{width:17px;height:17px;border-radius:50%;display:block;background:#b890fa}
+.home .lesson-dots i:nth-child(1),.home .lesson-dots i:nth-child(2){background:#2dc8e6}
+.home .xpbar{position:absolute;left:100px;top:511px;width:535px;height:22px;border-radius:12px}
+.home .xpbar .progress-fill{width:67%;border-radius:12px;display:flex;align-items:center;justify-content:flex-end;padding-right:47px;font-size:17px;font-weight:700}
+.home .xp-lab{position:absolute;left:643px;top:504px;font-size:28px}
+.home .trail-title{position:absolute;left:775px;top:161px;font-size:58px;line-height:1.06;font-weight:700;letter-spacing:-1.4px}
+.home .trail-title span{color:#812ef6}
+.home .trail-sub{position:absolute;left:776px;top:244px;font-family:'Open Sans',sans-serif;font-size:15px;font-weight:500}
+.home .mini-trail{position:absolute;left:760px;top:294px;width:592px;height:235px}
+.home .mini-trail svg{position:absolute;left:0;top:48px;width:592px;height:120px;overflow:visible}
+.home .trail-node{position:absolute;width:72px;height:72px;border-radius:50%;background:#7424e6;box-shadow:0 0 27px rgba(113,35,222,.35);display:flex;align-items:center;justify-content:center;font-size:39px}
+.home .trail-node .node-label{position:absolute;white-space:nowrap;font-size:15px;font-weight:600}
+.home .trail-node.n1{left:3px;top:94px}.home .trail-node.n1 .node-label{top:82px}
+.home .trail-node.n2{left:134px;top:22px}.home .trail-node.n2 .node-label{bottom:81px}
+.home .trail-node.n3{left:264px;top:94px}.home .trail-node.n3 .node-label{top:82px}
+.home .trail-node.n4{left:394px;top:22px}.home .trail-node.n4 .node-label{bottom:81px}
+.home .trail-node.n5{right:0;top:94px}.home .trail-node.n5 .node-label{top:82px}
+.home .trail-flag{position:absolute;left:296px;top:48px;font-size:26px;color:#27cae5}
+
+/* TRILHA */
+.trail .module-card{
+  position:absolute;left:235px;top:23px;width:941px;height:176px;border-radius:43px;
+  background:linear-gradient(105deg,#8f38ff 0%,#7523ed 100%);
+  padding:24px 45px;
+}
+.trail .module-title{font-size:37px;line-height:1;font-weight:700;color:#cab5ff}
+.trail .module-title-row{display:flex;align-items:center;gap:25px}
+.trail .module-dots{display:flex;gap:10px;align-items:center;margin-top:2px}
+.trail .module-dots i{width:23px;height:23px;border-radius:50%;background:#32cce9;display:block}
+.trail .module-dots i:last-child{background:#a881f3}
+.trail .module-sub{font-size:25px;font-weight:600;margin-top:17px}
+.trail .module-progress{position:absolute;left:73px;bottom:18px;width:819px;height:38px;border-radius:20px}
+.trail .module-progress .progress-fill-cyan{width:80%;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:29px;font-weight:700}
+.trail .trail-map{position:absolute;left:115px;top:285px;width:1120px;height:323px}
+.trail .trail-heading{position:absolute;font-size:20px;font-weight:600}
+.trail .trail-heading.learn{left:175px;top:6px}.trail .trail-heading.exp{left:492px;top:6px}
+.trail .trail-map svg{position:absolute;left:45px;top:78px;width:790px;height:140px;overflow:visible}
+.trail .big-node{position:absolute;width:94px;height:94px;border-radius:50%;background:#7324e3;box-shadow:0 0 29px rgba(117,38,228,.35);display:flex;align-items:center;justify-content:center;font-size:49px}
+.trail .big-node .node-label{position:absolute;top:105px;font-size:19px;font-weight:600;white-space:nowrap}
+.trail .big-node.a{left:0;top:119px}.trail .big-node.b{left:170px;top:26px}.trail .big-node.c{left:339px;top:119px}.trail .big-node.d{left:508px;top:26px}.trail .big-node.e{left:677px;top:119px}
+.trail .little-flag{position:absolute;left:374px;top:91px;font-size:26px;color:#24c9e4}
+.trail .locked{position:absolute;left:871px;top:21px;width:94px;height:94px;border-radius:50%;background:#655e6b;opacity:.8;display:flex;align-items:center;justify-content:center;font-size:43px;color:#877f8d}
+.trail .reward-mascot{position:absolute;right:0;top:20px;width:248px;height:175px;object-fit:contain}
+
+/* PROFILE */
+.profile .profile-head{position:absolute;left:81px;top:30px;width:1277px;height:177px;border-radius:27px;background:linear-gradient(100deg,#8d37ff 0%,#7624ee 100%)}
+.profile .avatar-wrap{position:absolute;left:21px;top:24px;width:124px;height:124px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#7d2cf1;font-size:86px}
+.profile .profile-name{position:absolute;left:183px;top:56px;font-size:36px;line-height:1;font-weight:700}
+.profile .profile-user{position:absolute;left:183px;top:97px;font-size:22px;font-weight:600;color:#c8b2ef}
+.profile .edit-pencil{position:absolute;right:30px;top:26px;font-size:40px}
+.profile .level-row{position:absolute;left:81px;top:226px;width:1277px;height:52px;border-radius:19px;background:linear-gradient(90deg,#822cf5 0%,#7220e7 100%);display:flex;align-items:center}
+.profile .level-copy{width:225px;padding-left:35px;font-size:25px;font-weight:700;white-space:nowrap}.profile .level-copy span{font-size:16px;color:#c8afe8;margin-left:7px}
+.profile .level-progress{width:856px;height:22px;border-radius:11px;margin-left:1px}.profile .level-progress .progress-fill{width:83%;border-radius:11px}
+.profile .level-flask{font-size:27px;margin-left:17px}.profile .level-xp{font-size:16px;color:#c5adea;margin-left:19px;font-weight:600}
+.profile .stat-row{position:absolute;left:81px;top:298px;width:1277px;height:52px;display:grid;grid-template-columns:300px 302px 302px 1fr;gap:25px}
+.profile .stat-card{height:52px;border-radius:18px;background:#421878;display:flex;align-items:center;padding:0 32px;font-size:26px;font-weight:700}.profile .stat-card small{font-size:15px;color:#b99bd6;margin-left:8px}.profile .stat-card .stat-icon{font-size:27px;margin-right:20px}.profile .stat-card.empty{padding:0}
+.profile .achievements{position:absolute;left:79px;top:383px;width:628px;height:214px;border-radius:20px;background:#441b76;padding:17px 37px}
+.profile .achievements h2{margin:0;font-size:25px;font-weight:700}.profile .ach-icons{display:flex;gap:46px;align-items:center;margin-top:37px}.profile .ach-icons span{width:96px;height:96px;display:flex;align-items:center;justify-content:center;font-size:72px}
+.profile .right-top{position:absolute;left:730px;top:383px;width:628px;height:85px;border-radius:18px;background:#441b76}
+.profile .right-bottom{position:absolute;left:730px;top:505px;width:628px;height:84px;display:grid;grid-template-columns:304px 143px 135px;gap:24px}.profile .right-bottom>div{background:#441b76;border-radius:18px}.profile .edit-box{display:flex;align-items:center;justify-content:center;font-size:27px;font-weight:700}
+
+/* CONTENT / EXERCISES */
+.list-page .hero{position:absolute;left:81px;top:30px;width:1277px;height:177px;border-radius:27px;background:linear-gradient(104deg,#8f3aff 0%,#7424ec 100%)}
+.list-page .hero-title{position:absolute;top:49px;font-size:59px;font-weight:700;line-height:1;letter-spacing:-1px}
+.list-page .hero-mascot{position:absolute;width:240px;height:159px;object-fit:contain;bottom:8px}
+.list-page .search{position:absolute;height:64px;border:3px solid #fff;border-radius:35px;background:transparent;display:flex;align-items:center;justify-content:flex-end;padding-right:19px}.list-page .search i{font-size:31px}
+.content-page .hero-title{left:254px}.content-page .hero-mascot{left:4px}.content-page .search{right:59px;top:59px;width:491px}
+.exercise-page .hero-title{left:646px}.exercise-page .hero-mascot{right:34px}.exercise-page .search{left:44px;top:59px;width:489px}
+.list-page .items{position:absolute;left:81px;top:238px;width:1277px;display:flex;flex-direction:column;gap:28px}
+.list-page .item-row{height:94px;border-radius:36px;background:linear-gradient(90deg,#3d176d 0%,#35105f 100%);display:flex;align-items:center;padding:0 36px 0 20px}
+.list-page .item-title{width:625px}.list-page .item-title h3{margin:0;font-size:27px;line-height:1.05;font-weight:700}.list-page .item-title p{margin:4px 0 0;font-size:14px;font-weight:500;color:#c0a6dc}
+.list-page .tag{width:84px;height:43px;border-radius:18px;background:#7928ec;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;margin-right:18px}.list-page .tag.type{width:84px}.list-page .tag.xp{width:84px}
+.list-page .start-btn{width:117px;height:55px;border-radius:26px;margin-left:auto;font-size:17px}
+
+/* LAB */
+.lab-page .lab-title{position:absolute;left:546px;top:45px;font-size:111px;line-height:1;font-weight:600;color:transparent;-webkit-text-stroke:5px #802ff4;letter-spacing:-4px}
+.lab-page .stations{position:absolute;left:94px;top:234px;width:1253px;display:flex;gap:93px}
+.lab-page .station{width:342px;text-align:center}
+.lab-page .station-card{width:342px;height:342px;border-radius:75px;background:radial-gradient(circle at 50% 30%,#7229fa 0%,#5b17e9 55%,#5411dc 100%);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.lab-page .station-card img{width:100%;height:100%;object-fit:contain}
+.lab-page .station-name{font-size:31px;font-weight:700;margin-top:13px}
+
+/* AJUSTE DOS ÍCONES DA TRILHA - HOME */
+
+.home .trail-node{
+  position:absolute;
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:#7424e6;
+  box-shadow:0 0 27px rgba(113,35,222,.35);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.home .trail-node > i,
+.home .trail-node > .icon-slot,
+.home .trail-node > svg,
+.home .trail-node > .svg-inline--fa{
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  width:40px;
+  height:40px;
+
+  margin:0;
+  padding:0;
+
+  transform:translate(-50%,-50%);
+
+  color:#fff;
+  line-height:1;
+}
+
+.home .trail-node > i{
+  font-size:40px;
+  text-align:center;
+}
+
+.home .trail-node > svg,
+.home .trail-node > .svg-inline--fa{
+  overflow:visible;
+}
+
+.home .trail-node .node-label{
+  position:absolute;
+
+  left:50%;
+  transform:translateX(-50%);
+
+  white-space:nowrap;
+
+  font-size:15px;
+  font-weight:600;
+}
+
+/* posição dos textos */
+
+.home .trail-node.n1 .node-label{
+  top:82px;
+}
+
+.home .trail-node.n2 .node-label{
+  bottom:81px;
+}
+
+.home .trail-node.n3 .node-label{
+  top:82px;
+}
+
+.home .trail-node.n4 .node-label{
+  bottom:81px;
+}
+
+.home .trail-node.n5 .node-label{
+  top:82px;
+}
+
+
+/* AJUSTE DOS ÍCONES - PÁGINA TRILHA */
+
+.trail .big-node{
+  position:absolute;
+
+  width:94px;
+  height:94px;
+
+  border-radius:50%;
+
+  background:#7324e3;
+  box-shadow:0 0 29px rgba(117,38,228,.35);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.trail .big-node > i,
+.trail .big-node > .icon-slot,
+.trail .big-node > svg,
+.trail .big-node > .svg-inline--fa{
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  width:49px;
+  height:49px;
+
+  margin:0;
+  padding:0;
+
+  transform:translate(-50%,-50%);
+
+  color:#fff;
+  line-height:1;
+}
+
+.trail .big-node > i{
+  font-size:49px;
+  text-align:center;
+}
+
+.trail .big-node > svg,
+.trail .big-node > .svg-inline--fa{
+  overflow:visible;
+}
+
+.trail .big-node .node-label{
+  position:absolute;
+
+  top:105px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  font-size:19px;
+  font-weight:600;
+
+  white-space:nowrap;
+}
